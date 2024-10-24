@@ -1,33 +1,34 @@
+//4) Dado o valor de faturamento mensal de uma distribuidora, detalhado por estado:
+//• SP – R$67.836,43
+//• RJ – R$36.678,66
+//• MG – R$29.229,88
+//• ES – R$27.165,48
+//• Outros – R$19.849,53
+
 #include <stdio.h>
 #include <stdlib.h>
 
-int pertence_fibonacci(int num) {
-    int a = 0, b = 1, c = 0;
-
-    if (num == 0 || num == 1) {
-        return 1;
-    }
-
-    while (c < num) {
-        c = a + b;
-        a = b;
-        b = c;
-    }
-
-    return (c == num);
-}
-
 int main() {
-    int num;
+    float sp = 67836.43;
+    float rj = 36678.66;
+    float mg = 29229.88;
+    float es = 27165.48;
+    float outros = 19849.53;
 
-    printf("Informe um numero: ");
-    scanf("%d", &num);
+    float total = sp + rj + mg + es + outros;
 
-    if (pertence_fibonacci(num)) {
-        printf("O numero %d pertence a sequencia de Fibonacci.\n", num);
-    } else {
-        printf("O numero %d nao pertence a sequencia de Fibonacci.\n", num);
-    }
+    float perc_sp = (sp / total) * 100;
+    float perc_rj = (rj / total) * 100;
+    float perc_mg = (mg / total) * 100;
+    float perc_es = (es / total) * 100;
+    float perc_outros = (outros / total) * 100;
+
+    printf("Percentual de representacao por estado:\n");
+    printf("SP: %.2f%%\n", perc_sp);
+    printf("RJ: %.2f%%\n", perc_rj);
+    printf("MG: %.2f%%\n", perc_mg);
+    printf("ES: %.2f%%\n", perc_es);
+    printf("Outros: %.2f%%\n", perc_outros);
 
     return 0;
 }
